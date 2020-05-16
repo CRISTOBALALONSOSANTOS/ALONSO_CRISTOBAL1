@@ -1,11 +1,11 @@
 package calculadora;
 
 public class RPN {
-	public void pushPila(double nuevo_dato) {
+	public void empujaPila(double nuevo_dato) {
 		NodoPila nuevo_nodo = new NodoPila(nuevo_dato, up);
 		up = nuevo_nodo;
 	}
-	public double popPila( ) {
+	public double pPila( ) {
 		double dato_arriba = up.dato;
 		up = up.abajo;
 		return dato_arriba;
@@ -30,37 +30,37 @@ public class RPN {
 				}
 				// convertir a double y añadir a la pila
 				numero = Double.parseDouble(temp);
-				pushPila(numero);
+				empujaPila(numero);
 			} else if(command.charAt(i) == '+') {
-				b = popPila( );
-				a = popPila( );
-				pushPila(a + b);
+				b = pPila( );
+				a = pPila( );
+				empujaPila(a + b);
 			} else if(command.charAt(i) == '-') {
-				b = popPila( );
-				a = popPila( );
-				pushPila(a - b);
+				b = pPila( );
+				a = pPila( );
+				empujaPila(a - b);
 			} else if(command.charAt(i) == '*') {
-				b = popPila( );
-				a = popPila( );
-				pushPila(a * b);
+				b = pPila( );
+				a = pPila( );
+				empujaPila(a * b);
 			} else if(command.charAt(i) == '/') {
-				b = popPila( );
-				a = popPila( );
-				pushPila(a / b);
+				b = pPila( );
+				a = pPila( );
+				empujaPila(a / b);
 			}
 			else if(command.charAt(i) == '^') {
-				b = popPila( );
-				a = popPila( );
-				pushPila(Math.pow(a, b));}
+				b = pPila( );
+				a = pPila( );
+				empujaPila(Math.pow(a, b));}
 			else if(command.charAt(i) == '%') {
-				b = popPila( );
-				a = popPila( );
-				pushPila(a%b);
+				b = pPila( );
+				a = pPila( );
+				empujaPila(a%b);
 			} else if(command.charAt(i) != ' ') {
 				throw new IllegalArgumentException( );
 			}
 		}
-		double val = popPila( );
+		double val = pPila( );
 		if(up != null) {
 			throw new IllegalArgumentException( );
 		}
