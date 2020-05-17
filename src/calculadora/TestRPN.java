@@ -1,4 +1,7 @@
 package calculadora;
+
+/** TestRPN Clase principal
+*/
 import java.util.Scanner;
 public class TestRPN {
 	/* metodo main */
@@ -13,7 +16,7 @@ public class TestRPN {
 			} else {
 				RPN calc = new RPN(linea);
 				System.out.printf("El resultado es %f\n",
-						calc.resultado( ));
+						calc.resul( ));
 			}
 		}
 	}
